@@ -1,0 +1,619 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="./file/CSS/all.css">
+  <title>Document</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+
+    }
+
+    body {
+      height: 100%;
+      font-family: '微軟正黑體';
+      font-size: 16px;
+      color: #333;
+      background-color: white;
+      overflow-y: scroll;
+    }
+
+    i {
+      vertical-align: middle;
+    }
+
+    hr {
+      margin-top: 15px;
+    }
+
+
+    .topbar {
+      position: fixed;
+      width: 100%;
+      height: 70px;
+      background-color: white;
+      z-index: 1;
+
+    }
+
+    .yt_mark {
+      position: relative;
+      margin: 10px 30px 0 20px;
+      width: 15%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    .search {
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: 20%;
+    }
+
+    .topbar .search input {
+      width: 500px;
+      height: 45px;
+      font-size: 16px;
+      font-weight: bold;
+      padding: 0 5px;
+      display: inline-block;
+
+    }
+
+    .topbar .search .search_icon {
+      box-sizing: border-box;
+      width: 60px;
+      height: 45px;
+      border: 1px solid #333;
+      vertical-align: middle;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    .login {
+      position: absolute;
+      left: 85%;
+      top: 20px;
+      color: #333;
+    }
+
+    .login_icon {
+      width: 90px;
+      height: 40px;
+      margin: auto;
+      text-align: center;
+      line-height: 40px;
+      border: 1px solid blue;
+      display: inline-block;
+      color: blue;
+
+    }
+
+    .menu {
+      position: fixed;
+      top: 1%;
+      width: 13%;
+      height: 100vh;
+      margin-left: 20px;
+      font-size: 16px;
+      background-color: white;
+      overflow-y: scroll;
+
+    }
+
+    .menu img {
+      width: 35px;
+      vertical-align: middle;
+      margin-right: 40px;
+    }
+
+    .menu P {
+      padding-top: 10px;
+      line-height: 2;
+      margin-bottom: 1rem;
+    }
+
+    .first_list {
+      width: 100%;
+      position: relative;
+    }
+
+    .first_list,
+    .second_list {
+      line-height: 3;
+      cursor: pointer;
+    }
+
+    .first_list ul li i {
+      margin-right: 40px;
+    }
+
+    .first_list ul li:hover {
+      background: lightgray;
+    }
+
+    .second_list ul li img {
+      margin-right: 40px;
+    }
+
+    .second_list p {
+      letter-spacing: 1px;
+      font-weight: bold;
+      color: #333;
+    }
+
+    .second_list ul li:hover {
+      background: lightgray;
+    }
+
+    .second_list .browse:hover {
+      background: lightgray;
+    }
+
+    .link_top {
+      position: fixed;
+      top: 6%;
+      left: 15%;
+      width: 85%;
+      height: 1px;
+      background: white;
+      border: 1px solid lightgray;
+      z-index: 1;
+    }
+
+    .top2 {
+      box-sizing: border-box;
+      width: 86%;
+      position: fixed;
+      left: 14%;
+      top: 6%;
+      padding: 1rem;
+      text-align: center;
+      background-color: white;
+
+    }
+
+    .row span {
+      display: inline-block;
+      margin: auto;
+      border-radius: 30px;
+      text-align: center;
+      cursor: pointer;
+    }
+
+    .txt1,
+    .txt2,
+    .txt3,
+    .txt4,
+    .txt5 {
+      width: 60px;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #333;
+      border-radius: 20px;
+    }
+
+    .txt6 {
+      width: 100px;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #333;
+    }
+
+    .txt7 {
+      width: 80px;
+      height: 40px;
+      line-height: 40px;
+      border: 1px solid #333;
+    }
+
+
+    .content {
+      position: absolute;
+      width: 86%;
+      height: 100vh;
+      z-index: -999;
+    }
+
+    .ad {
+      position: absolute;
+      top: 12%;
+      left: 16%;
+      width: 100%;
+      height: 350px;
+      background-color: #000;
+      color: white;
+    }
+
+
+    .ad img {
+      position: absolute;
+      left: 5%;
+      top: 8%;
+    }
+
+    .ad h1 {
+      position: absolute;
+      left: 5%;
+      top: 20%;
+    }
+
+    button {
+      width: 90px;
+      height: 50px;
+      font-size: 16px;
+      background-color: transparent;
+      color: white;
+      border: 1px solid white;
+      position: absolute;
+      left: 5%;
+      bottom: 20%;
+      cursor: pointer;
+    }
+
+    .ad span {
+      position: absolute;
+      top: 2%;
+      right: 1%;
+      width: 30px;
+      height: 30px;
+      border: 1px solid gray;
+      background-color: gray;
+      color: #000;
+      text-align: center;
+      line-height: 30px;
+      font-size: 18px;
+      cursor: pointer;
+    }
+
+    .video {
+      position: relative;
+      top: 42%;
+      left: 16%;
+      box-sizing: border-box;
+      width: 100%;
+      margin: auto;
+      padding-left: 50px;
+      padding-top: 50px;
+      overflow: auto;
+    }
+
+
+    .box {
+      width: 300px;
+      height: 300px;
+      margin: 10px;
+      padding: 10px;
+      overflow: auto;
+      float: left;
+      cursor: pointer;
+
+      /* background-color: chocolate; */
+
+    }
+
+    .video_img {
+      width: 100%;
+      cursor: pointer;
+    }
+
+
+    .avatar {
+      width: 40px;
+      height: 40px;
+      padding-top: 8px;
+      padding-right: 10px;
+      border-radius: 50%;
+      float: left;
+    }
+
+    p {
+      padding-left: 40px;
+    }
+
+    /* .clearfix::after{
+      content:"";
+      display:block;
+      clear: both;
+    } */
+
+    .link-top2 {
+      width: 92%;
+      height: 1px;
+      background: white;
+      border: 1px solid lightgray;
+      position: relative;
+      top: 42%;
+      left: 20%;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="topbar">
+    <div class="yt_mark">
+      <i class="fas fa-bars fa-2x"></i>
+      <i class="fab fa-youtube fa-3x" style="color: red;margin-left: 70px;"></i>
+    </div>
+    <div class="search">
+      <input type="text" placeholder="收尋" size="10">
+      <div class="search_icon"><i class="fa-solid fa-magnifying-glass fa-2x" style="margin:auto"></i></div>
+      <i class="fa-solid fa-microphone fa-2x" style="margin-left: 10px;"></i>
+    </div>
+    <div class="login">
+      <a href="#"><i class="fa-brands fa-buromobelexperte fa-2x" style="margin-right: 50px;"></i></a>
+      <a href="#"><i class="fa-solid fa-ellipsis-vertical fa-2x" style="margin-right: 50px;"></i></a>
+      <div class="login_icon"><a href="#"><i class="fa-solid fa-circle-user fa-2x" style="color: blue;"></i> 登入</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="menu">
+    <div>
+      <i class="fas fa-bars fa-2x"></i>
+      <i class="fab fa-youtube fa-3x" style="color: red;margin-bottom: 20px;"></i>
+    </div>
+    <div class="first_list">
+      <ul>
+        <li><i class="fas fa-home fa-2x"></i> 首頁</li>
+        <li><i class="fas fa-compass fa-2x"></i> 探索</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2989/premium/2989849.png?token=exp=1633761734~hmac=abecd11ad219eee6d3baaa714e2359e9">
+          訂閱內容</li>
+      </ul>
+      <hr>
+      <ul>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/4229/premium/4229888.png?token=exp=1633761746~hmac=8a14d09282490f65ba07e3f1b1576202"
+            title="媒體庫">媒體庫</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/4077/premium/4077091.png?token=exp=1633767947~hmac=ad0860322efa2b0229f9612e1cb7e157"
+            title="觀看紀錄"> 觀看紀錄</li>
+      </ul>
+      <hr>
+      <p>登入帳戶即可對影片表示喜歡、發布留言及訂閱頻道。</p>
+      <div class="login_icon"><a href="#"><i class="fa-solid fa-circle-user fa-2x" style="color: blue;"></i> 登入</a>
+      </div>
+    </div>
+    <hr>
+
+    <div class="second_list">
+      <p>YOUTUBE 精選</p>
+      <ul>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2168/premium/2168585.png?token=exp=1633768170~hmac=f58d8a26fa6022f690fa41d6a00adcb8"
+            title="音樂"> 音樂</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/3288/premium/3288919.png?token=exp=1633768256~hmac=f8353644ca566cf3b1d8ae8c3ca8a14f"
+            title="體育"> 體育</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/512/686/686589.png" title="遊戲"> 遊戲</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/512/860/860334.png" title="電影"> 電影</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/542/premium/542656.png?token=exp=1633768465~hmac=935584caffdf2cc5ddb95ae94ca0c323"
+            title="新聞"> 新聞</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2330/premium/2330100.png?token=exp=1633760838~hmac=553bb81d90cbf2de46b6bfe49ccc7cee"
+            title="直播"> 直播</li>
+        <li><img src="https://cdn-icons-png.flaticon.com/512/1758/1758455.png" title="360度影片"> 360度影片</li>
+      </ul>
+
+      <hr>
+      <div class="browse"><img src="https://cdn-icons-png.flaticon.com/512/992/992651.png" title="瀏覽頻道"> 瀏覽頻道</div>
+      <hr>
+
+      <p>更多YOUTUBE功能</p>
+      <ul>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2190/premium/2190466.png?token=exp=1633761148~hmac=54b9b799419f2cfb532be4591bcfd66d"
+            title="YouTube Premium"> YouTube Premium</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2330/premium/2330100.png?token=exp=1633761217~hmac=68a43004da0436cc349b104e45606da1"
+            title="直播"> 直播</li>
+      </ul>
+      <hr>
+
+      <ul>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2040/premium/2040504.png?token=exp=1633761270~hmac=ca2ed3b826c77f91e5d42a899c7e36f2"
+            title="設定"> 設定</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/2814/premium/2814368.png?token=exp=1633761377~hmac=9888af518e56e90cea34b6763611e9a6"
+            title="檢舉紀錄"> 檢舉紀錄</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/471/premium/471664.png?token=exp=1633761475~hmac=45a24c1793ea4c39870ca01cb52dfea5"
+            title="說明"> 說明</li>
+        <li><img
+            src="https://cdn-icons.flaticon.com/png/512/3574/premium/3574209.png?token=exp=1633761657~hmac=6cfc7487ce13d632348912b08a5b5a8a"
+            title="提供意見"> 提供意見</li>
+      </ul>
+
+      <hr>
+      <p>簡介 媒體 版權 與我們聯絡 創作者 廣告 開發人員</p>
+      <p>條款 隱私權 政策與安全性 Youtube 運作方式 測試新功能</p>
+      <p>&copy; 2021 Google LLC</p>
+    </div>
+  </div>
+
+
+  <div class="top2">
+    <div class="link_top"></div>
+    <div class="row">
+      <span class="txt1">全部</span>
+      <span class="txt2">音樂</span>
+      <span class="txt3">直播中</span>
+      <span class="txt4">卡通</span>
+      <span class="txt5">寵物</span>
+      <span class="txt6">動作冒險遊戲</span>
+      <span class="txt7">最新上傳</span>
+    </div>
+  </div>
+
+  <div class="content">
+    <div class="ad">
+      <img
+        src="https://www.gstatic.com/youtube/img/promos/growth/1263f05576c9f137587330f92e03e0a725f426fd9d40d28a8942692dc8f6b210_640x48.png"
+        alt="">
+      <h1>經濟實惠的 Music Premium 家庭方案</h1>
+      <button>立即訂閱</button>
+      <span>X</span>
+    </div>
+
+    <div class="video">
+      <div class="box">
+        <img class="video_img" src="./file/video1.png" alt="viedo1">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/Rgiz0oMdz2dELcgxaPkK5zER31b6rxE7X2lqj_8cjuZHzRfGD70kfw1HsofwLDiFOgv61eNZQQ=s68-c-k-c0x00ffffff-no-rj"
+            title="GANGSTER">
+          <h3>Don Omar - Danza Kuduro |REMIX </h3>
+          <p>GANGSTER CITY <br> 觀看次數：4893萬次‧3個月前</p>
+        </div>
+
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video2.png" alt="video2">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLRdElh7G6aI_HNVtwZaidqLckwl20fFa0rv3koDDw=s68-c-k-c0x00ffffff-no-rj"
+            title="三立LIVE新聞">
+          <h3>三立 LIVE 新聞直播|SET LIVE NEWS|SET LIVE 二... </h3>
+          <p>三立LIVE新聞 <br> 55532人正在觀看 直播中</p>
+        </div>
+
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video3.png" alt="video3">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLTvQdMAJpMRMBFtn3cRl6tWGxpCqnAbYga6FtNrow=s68-c-k-c0x00ffffff-no-rj"
+            title="木耀4超玩">
+          <h3>《一日系列第一百六十二集》邰哥出現返老還童的...</h3>
+          <p>木耀4超玩 <br> 觀看次數：111萬次‧1週前</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video4.png" alt="viedo4">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/L5vFU1-ml2fYpbNbt-r-F_2akrwBV-w2jLTPpWMr-kdmUqD0zV3xBnwCvHyrcCRUT0zeJVAs=s68-c-k-c0x00ffffff-no-rj"
+            title="EHPMusicChannel">
+          <h3>張遠 - 嘉賓『感謝你特別邀請，可惜這是你和他的婚... </h3>
+          <p>EHPMusicChannel <br> 觀看次數：2173萬次‧11個月前</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="video">
+      <div class="box">
+        <img class="video_img" src="./file/video5.png" alt="viedo5">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLTJF3vf6WMkZD_5lr5FQzOBqZH_GqObSZ1PBI7TnA=s68-c-k-c0x00ffffff-no-rj"
+            title="">
+          <h3>小琉球交通船靠岸突冒煙性無人傷虛驚一場 @東森...</h3>
+          <p>東森新聞 CH51 <br> 觀看次數：210次‧18分鐘前</p>
+        </div>
+
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video6.png" alt="video6">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLQB3pcCrJka0BkM6eabX3F_zuj_BmAPpt-aZKnQ6w=s68-c-k-c0x00ffffff-no-rj"
+            title="Muse木棉花-闔家歡">
+          <h3>我們這一家 每天不間斷 馬拉松直播|#好家在我在家 </h3>
+          <p>Muse木棉花-闔家歡 <br> 861人正在觀看 直播中</p>
+        </div>
+
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video7.png" alt="video7">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLQ6HvNjDjiFuKKRKMm4tr1nbe1P3sNIJ5L3fV7C=s68-c-k-c0x00ffffff-no-rj"
+            title="甜美的旋律 Sweet Melody">
+          <h3>50首突破百萬的洗腦神曲你一訂有聽過多想留在你...</h3>
+          <p>甜美的旋律 Sweet Melody <br> 觀看次數：332萬次‧3個月前</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video8.png" alt="viedo8">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLTCGiM-wQo5lHpHr62WkOa_y1mezJzNPjpyjy-CVA=s68-c-k-c0x00ffffff-no-rj"
+            title="TVBS NEWS">
+          <h3>【ON AIR】TVBS新聞 55頻道 24小時直播|TVBS... </h3>
+          <p>TVBS NEWS <br> 8214人正在觀看 直播中</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="link-top2"></div>
+
+    <div class="video">
+      <div class="box">
+        <img class="video_img" src="./file/video9.png" alt="viedo9">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/TvL49bFHN1qc7VpsaQWi_h_LXjZ6PqjvrMpBv1L6gkR8OVbeoNbJtO0c7PrE78iu1dKSf8ys=s68-c-k-c0x00ffffff-no-rj"
+            title="廣播電視金鐘獎Golden Bell Awards">
+          <h3>小琉球交通船靠岸突冒煙性無人傷虛驚一場 @東森...</h3>
+          <p>廣播電視金鐘獎Golden Bell... <br> 觀看次數：120萬次‧6天前</p>
+        </div>
+
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video10.png" alt="video10">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLR2W5VRz8Zcd2aDZPVJvjo_qkJB_J9GsEAluksI=s68-c-k-c0x00ffffff-no-rj"
+            title="志祺七七 X 圖文不符">
+          <h3>我們這一家 每天不間斷 馬拉松直播|#好家在我在家 </h3>
+          <p>志祺七七 X 圖文不符 <br> 觀看次數：84萬‧4天前</p>
+        </div>
+
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video11.png" alt="video11">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLSXEKHwjY8vsYiHiuythAqiZmKkktXucDF978zaow4=s68-c-k-c0x00ffffff-no-rj"
+            title="SMTOWN">
+          <h3>aespa 에스파 'Savage' MV</h3>
+          <p>SMTOWN <br> 觀看次數：5823萬次‧4天前</p>
+        </div>
+      </div>
+
+      <div class="box">
+        <img class="video_img" src="./file/video12.png" alt="viedo12">
+        <div>
+          <img class="avatar"
+            src="https://yt3.ggpht.com/ytc/AKedOLRgr-Isiy6brHF_D7vzAqKx9r3m9xLfJNkeg40k=s68-c-k-c0x00ffffff-no-rj"
+            title="飆悍館長">
+          <h3>館長-BYG打進世界/成員疑涉賭~被禁賽 丁特加油/辛... </h3>
+          <p>飆悍館長 <br> 觀看次數：14萬次‧12小時前</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+</body>
+
+</html>
